@@ -1,0 +1,6 @@
+*.pem
+*.tar.gz
+*.json
+*.log
+tunnel-key*
+client.keys
