@@ -1,0 +1,14 @@
+[Unit]
+Description=Reverse SSH tunnel to AWS honeypot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<LOCAL_USER>
+ExecStart=/usr/bin/ssh -i <PATH_TO_TUNNEL_KEY> -R 1514:localhost:1514 -R 1515:localhost:1515 -N -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no ubuntu@<EC2_PUBLIC_IP>
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
