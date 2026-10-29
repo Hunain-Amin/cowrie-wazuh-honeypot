@@ -1,0 +1,1 @@
+# cowrie-wazuh-honeypot
